@@ -3,7 +3,6 @@
 
 
 
-
 ```
 python -m vllm.entrypoints.openai.api_server \
     --model /home/rickychen/桌面/llm/models/Llama-3.2-11B-Vision-Instruct \

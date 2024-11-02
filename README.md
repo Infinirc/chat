@@ -18,7 +18,6 @@ python -m vllm.entrypoints.openai.api_server \
     --served-model-name Infinirc-Llama3.2-8B-5G-v1.0
 ```
 
-
 ```
 
 

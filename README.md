@@ -61,3 +61,36 @@ python -m vllm.entrypoints.openai.api_server \
 ```
 CUDA_VISIBLE_DEVICES=0 python -m vllm.entrypoints.openai.api_server --gpu-memory-utilization 0.95 --model=meta-llama/Llama-3.2-11B-Vision-Instruct --tokenizer=meta-llama/Llama-3.2-11B-Vision-Instruct --download-dir="/home/user/storage/hf_cache" --dtype=bfloat16 --device=cuda --host=127.0.0.1 --port=8080 --max-model-len=8192 --quantization="fp8" --enforce_eager --max_num_seqs=8 --enable_chunked-prefill=false
 ```
+---
+16G VRAM
+
+CUDA_VISIBLE_DEVICES=0,1 python -m vllm.entrypoints.openai.api_server --gpu-memory-utilization 0.95 --model=meta-llama/Llama-3.2-11B-Vision-Instruct --tokenizer=meta-llama/Llama-3.2-11B-Vision-Instruct --download-dir="/home/user/storage/hf_cache" --dtype=bfloat16 --device=cuda --host=127.0.0.1 --port=8080 --max-model-len=8192 --quantization="fp8" --enforce_eager --max_num_seqs=8 --enable_chunked-prefill=false --tensor_parallel_size=2
+
+
+
+CUDA_VISIBLE_DEVICES=0,1 python -m vllm.entrypoints.openai.api_server --gpu-memory-utilization 0.95 --model=meta-llama/Llama-3.2-11B-Vision-Instruct --tokenizer=meta-llama/Llama-3.2-11B-Vision-Instruct --download-dir="/home/user/storage/hf_cache" --dtype=bfloat16 --device=cuda --host=127.0.0.1 --port=8000 --max-model-len=8192 --enforce_eager --max_num_seqs=8 --enable_chunked-prefill=false --tensor_parallel_size=2
+
+
+CUDA_VISIBLE_DEVICES=0,1 python -m vllm.entrypoints.openai.api_server --gpu-memory-utilization 0.99 --model=meta-llama/Llama-3.2-11B-Vision-Instruct --tokenizer=meta-llama/Llama-3.2-11B-Vision-Instruct --download-dir="/home/user/storage/hf_cache" --dtype=bfloat16 --device=cuda --host=127.0.0.1 --port=8000 --max-model-len=512 --enforce_eager --max_num_seqs=4 --enable_chunked-prefill=false --tensor_parallel_size=2
+
+
+CUDA_VISIBLE_DEVICES=0,1 python -m vllm.entrypoints.openai.api_server --gpu-memory-utilization 0.99 --model=meta-llama/Llama-3.2-11B-Vision-Instruct --tokenizer=meta-llama/Llama-3.2-11B-Vision-Instruct --download-dir="/home/user/storage/hf_cache" --dtype=bfloat16 --device=cuda --host=127.0.0.1 --port=8080 --max-model-len=4096 --enforce_eager --max_num_seqs=4 --enable_chunked-prefill=false --tensor_parallel_size=2
+
+
+CUDA_VISIBLE_DEVICES=0,1 python -m vllm.entrypoints.openai.api_server \
+    --gpu-memory-utilization 0.98 \
+    --model meta-llama/Llama-3.2-11B-Vision-Instruct \
+    --tokenizer meta-llama/Llama-3.2-11B-Vision-Instruct \
+    --dtype bfloat16 \
+    --device cuda \
+    --host 127.0.0.1 \
+    --port 8000 \
+    --max-model-len 2048 \
+    --enforce-eager \
+    --max-num-seqs 2 \
+    --enable-chunked-prefill false \
+    --tensor-parallel-size 2 \
+    --trust-remote-code \
+    --download-dir /home/rickychen/桌面/llm/models/Llama-3.2-11B-Vision-Instruct \
+    --block-size 8 \
+    --swap-space 16

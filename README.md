@@ -58,3 +58,6 @@ python -m vllm.entrypoints.openai.api_server \
 ```
 
 
+```
+CUDA_VISIBLE_DEVICES=0 python -m vllm.entrypoints.openai.api_server --gpu-memory-utilization 0.95 --model=meta-llama/Llama-3.2-11B-Vision-Instruct --tokenizer=meta-llama/Llama-3.2-11B-Vision-Instruct --download-dir="/home/user/storage/hf_cache" --dtype=bfloat16 --device=cuda --host=127.0.0.1 --port=8080 --max-model-len=8192 --quantization="fp8" --enforce_eager --max_num_seqs=8 --enable_chunked-prefill=false
+```

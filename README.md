@@ -94,3 +94,13 @@ CUDA_VISIBLE_DEVICES=0,1 python -m vllm.entrypoints.openai.api_server \
     --download-dir /home/rickychen/桌面/llm/models/Llama-3.2-11B-Vision-Instruct \
     --block-size 8 \
     --swap-space 16
+
+
+
+---
+16G no fp8
+
+
+CUDA_VISIBLE_DEVICES=0,1 python -m vllm.entrypoints.openai.api_server --gpu-memory-utilization 0.95 --model=meta-llama/Llama-3.2-11B-Vision-Instruct --tokenizer=meta-llama/Llama-3.2-11B-Vision-Instruct --dtype=bfloat16 --device=cuda --host=0.0.0.0 --port=8001 --max-model-len=8000 --enforce_eager --max_num_seqs=4 --enable_chunked-prefill=false --tensor_parallel_size=2
+
+CUDA_VISIBLE_DEVICES=0,1 python -m vllm.entrypoints.openai.api_server --gpu-memory-utilization 0.95 --model=meta-llama/Llama-3.2-11B-Vision-Instruct --tokenizer=meta-llama/Llama-3.2-11B-Vision-Instruct --dtype=bfloat16 --device=cuda --host=0.0.0.0 --port=8001 --max-model-len=8000 --enforce_eager --max_num_seqs=6 --enable_chunked-prefill=false --tensor_parallel_size=2
